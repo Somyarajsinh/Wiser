@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#090b14" />
+  <meta name="description" content="Wiser — a smarter way to scroll. Bite-size knowledge, playful quizzes and curiosity in every swipe." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <title>Wiser — make every scroll count</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+<div class="app-shell" id="app">
+  <aside class="left-rail">
+    <button class="brand brand-large" data-action="home" aria-label="Wiser home"><span class="brand-icon">✳</span><span>wi<span class="brand-serif">s</span>er<span class="brand-period">.</span></span></button>
+    <div class="brand-subline">Make every scroll count.</div>
+    <div class="nav-heading">YOUR SPACE</div>
+    <nav class="nav-list" aria-label="Main navigation">
+      <button class="nav-item active" data-action="home"><span class="nav-icon">⌂</span> For You <span class="nav-right">✦</span></button>
+      <button class="nav-item" data-action="explore"><span class="nav-icon">⌕</span> Explore</button>
+      <button class="nav-item" data-action="saved"><span class="nav-icon">♡</span> Saved <span class="nav-pill" id="saved-nav-count">0</span></button>
+      <button class="nav-item" data-action="profile"><span class="nav-icon">◉</span> My Progress</button>
+    </nav>
+    <div class="nav-heading topics-heading">EXPLORE TOPICS</div>
+    <nav id="topic-navigation" class="topic-navigation" aria-label="Choose a topic"></nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-note"><div class="sidebar-note-icon">✧</div><strong>A little wiser, every day.</strong><span>Replace mindless scrolling with micro-moments of wonder.</span></div>
+      <button class="subtle-button" data-action="settings">⚙ &nbsp; Preferences</button>
+    </div>
+  </aside>
+
+  <main class="main-area">
+    <header class="main-header">
+      <div class="mobile-brand"><span class="brand-icon">✳</span> wiser<span class="brand-period">.</span></div><button class="mobile-duel" data-action="challenge">⚡ Duel</button>
+      <div class="header-copy"><div class="eyebrow">YOUR DAILY DOSE OF CURIOUS</div><h1>Feed your <em>mind.</em></h1></div>
+      <div class="header-buttons"><button class="header-icon-button" data-action="explore" title="Search lessons" aria-label="Search lessons">⌕</button><button class="header-icon-button" data-action="settings" title="Settings" aria-label="Settings">⚙</button><div class="tiny-avatar" data-action="profile">W</div></div>
+    </header>
+    <div class="feed-tabs" id="feed-tabs" aria-label="Feed category filters"></div>
+    <div class="feed-stage">
+      <div class="stage-side stage-side-left"><span class="rotate-label">GOOD THINGS COME TO THOSE WHO SCROLL</span><span class="long-line"></span></div>
+      <div class="reel-frame">
+        <div id="reel-feed" class="reel-feed" tabindex="0" aria-label="Vertical knowledge feed. Scroll to go to the next lesson."></div>
+        <div class="feed-bottom-hint" id="feed-hint"><span class="hint-chevrons">⌄<span>⌄</span></span> Swipe to get smarter</div>
+      </div>
+      <div class="stage-side stage-side-right"><button class="feed-nudge" data-action="previous" title="Previous reel" aria-label="Previous reel">↑</button><button class="feed-nudge" data-action="next" title="Next reel" aria-label="Next reel">↓</button><span class="stage-counter" id="stage-counter">01 / ∞</span></div>
+    </div>
+    <div class="keyboard-hint">↑ ↓ to swipe <span>·</span> Space to reveal <span>·</span> / to search <span>·</span> Saved locally</div>
+  </main>
+
+  <aside class="right-rail">
+    <div class="right-header"><span class="online-dot"></span> YOUR LEARNING DASHBOARD <span class="right-header-star">✦</span></div>
+    <div class="welcome-card"><div class="small-label">TODAY'S SPARK</div><div class="welcome-headline">Curiosity looks<br/><em>good on you.</em></div><div class="welcome-footer"><span>⚡</span> Every little lesson counts.</div></div>
+    <div class="level-card"><div class="level-header"><span>YOUR BRAIN LEVEL</span><span id="level-label">Lv. 1</span></div><div class="xp-total"><span id="xp-number">0</span><span class="xp-unit">XP</span></div><div class="level-track"><div id="level-progress" class="level-fill"></div></div><div class="level-caption" id="level-caption">100 XP until level 2</div></div>
+    <div class="stats-pair"><div class="stat-tile"><div class="stat-icon">🔥</div><div id="streak-number" class="stat-number">0</div><div class="stat-desc">day streak</div></div><div class="stat-tile"><div class="stat-icon">✓</div><div id="learned-number" class="stat-number">0</div><div class="stat-desc">lessons learned</div></div></div>
+    <div class="quest-card"><div class="quest-top"><span>✦ DAILY QUEST</span><span class="quest-tag">+100 BONUS XP</span></div><h3>5 small wins.<br/>A sharper mind.</h3><p>Finish 5 mini-quizzes today.</p><div class="quest-dots" id="quest-dots"></div><div class="quest-caption" id="quest-caption">0 of 5 completed today</div><button class="challenge-cta" data-action="challenge">⚡ Play the 60-second brain duel <span>↗</span></button></div>
+    <div class="right-footer"><span>✳</span> A better kind of rabbit hole.<div>Created for curious minds, not endless noise.</div></div>
+  </aside>
+</div>
+
+<nav class="mobile-nav" aria-label="Mobile navigation"><button data-action="home" class="active"><span>⌂</span>Feed</button><button data-action="explore"><span>⌕</span>Explore</button><button data-action="saved"><span>♡</span>Saved</button><button data-action="profile"><span>◉</span>Me</button></nav>
+<div id="modal-layer" class="modal-layer" hidden><div class="modal-backdrop" data-action="close-modal"></div><div id="modal-content" class="modal-content" role="dialog" aria-modal="true" aria-label="Wiser panel"></div></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="lessons.js"></script><script src="app.js"></script>
+</body>
+</html>
